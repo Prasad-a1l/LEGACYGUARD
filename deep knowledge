@@ -1,0 +1,2181 @@
+vit.edu Mail	PRASAD BANDEWAR <prasad.bandewar23@vit.edu>
+(no subject)
+PRASAD BANDEWAR <prasad.bandewar23@vit.edu>	Sun, Sep 6, 2026 at 12:31 PM
+To: Prasad Bandewar <prasadbandewar985@gmail.com>
+Yes. Below is the finalized version I would recommend you build for the Michelin Harness Engineering Hackathon.
+
+I have consolidated your original idea, the CodeWiki-style continuous code understanding, the incident-memory idea, external research, employee expertise, legacy-code continuity, SDLC documentation, and the flaws we identified. I have also deliberately removed or constrained the risky/unrealistic parts.
+
+LEGACYGUARD
+The Living Engineering Memory & Incident Resolution Harness
+“When the engineer leaves, the knowledge doesn't.”
+
+One-line pitch
+LEGACYGUARD continuously understands a company's software, preserves its engineering knowledge and historical incidents, detects documentation and knowledge gaps, and uses verified internal or external evidence to help engineers diagnose and resolve new failures safely.
+
+1. What exactly are we building?
+LEGACYGUARD is not just:
+
+a CodeWiki clone
+an SDLC document generator
+a chatbot
+a RAG system
+an incident-management system
+an employee tracker
+It combines these into a stateful multi-agent harness.
+
+The central idea is:
+
+                    SOFTWARE
+                       │
+          ┌────────────┼────────────┐
+          │            │            │
+          ▼            ▼            ▼
+        CODE        INCIDENTS    ENGINEERING
+                                    HISTORY
+          │            │            │
+          └────────────┼────────────┘
+                       ▼
+             ENGINEERING MEMORY
+                       │
+              ┌────────┴────────┐
+              │                 │
+              ▼                 ▼
+       LIVING SOFTWARE      INCIDENT
+       DOCUMENTATION        INTELLIGENCE
+              │                 │
+              └────────┬────────┘
+                       ▼
+                KNOWLEDGE GRAPH
+                       │
+                       ▼
+                 NEW INCIDENT
+                       │
+                       ▼
+             MULTI-AGENT HARNESS
+                       │
+             ┌─────────┴─────────┐
+             ▼                   ▼
+       INTERNAL MEMORY       EXTERNAL WORLD
+             │                   │
+             └─────────┬─────────┘
+                       ▼
+                 SOLUTION ENGINE
+                       │
+                       ▼
+                   CRITIC
+                       │
+                ┌──────┴──────┐
+                ▼             ▼
+              PASS          UNSURE
+                │             │
+                ▼             ▼
+           RECOMMEND       ESCALATE
+                │
+                ▼
+             ENGINEER
+                │
+                ▼
+         VERIFIED OUTCOME
+                │
+                ▼
+         MEMORY UPDATED
+The important thing is that the output of one agent becomes controlled input to another agent, with validation and state between them.
+
+That is your harness.
+
+2. The four major capabilities
+I would structure the entire product around four pillars.
+
+Pillar A — Living Software Understanding
+Understand existing and legacy software.
+
+Pillar B — Institutional Engineering Memory
+Remember incidents, fixes, decisions and relevant engineering expertise.
+
+Pillar C — Incident Resolution Intelligence
+Use historical knowledge first, external knowledge second, and human escalation when evidence is insufficient.
+
+Pillar D — Continuous Software/SDLC Continuity
+Keep documentation and knowledge synchronized as software evolves.
+
+3. Pillar A — Living Software Understanding
+This is the CodeWiki-inspired component.
+
+The system connects to:
+
+Git repository
+      │
+      ├── source code
+      ├── commits
+      ├── branches
+      ├── pull requests
+      ├── issues
+      └── code reviews
+
+API
+      │
+      ├── OpenAPI
+      ├── GraphQL
+      └── endpoint definitions
+
+Database
+      │
+      ├── schema
+      ├── migrations
+      └── relationships
+
+Testing
+      │
+      ├── unit tests
+      ├── integration tests
+      └── E2E tests
+
+Operations
+      │
+      ├── logs
+      ├── runbooks
+      └── deployment configuration
+
+Documentation
+      │
+      ├── architecture docs
+      ├── requirements
+      └── existing wiki
+4. Code Archaeologist Agent
+This is the first important agent.
+
+Responsibility
+Understand what actually exists.
+
+It extracts:
+
+Services
+Modules
+Functions
+Classes
+APIs
+Database
+Dependencies
+Configuration
+Tests
+External services
+Message queues
+Authentication
+Business logic
+It does not diagnose incidents.
+
+It does not invent explanations.
+
+Its job is:
+
+“Tell me what the software actually contains.”
+
+5. Evidence classification
+This fixes one of your biggest hallucination risks.
+
+Every piece of knowledge gets a type.
+
+FACT
+Directly observed.
+
+FACT
+
+PaymentService calls Redis.
+Source:
+payment/service.py
+HISTORICAL
+Supported by an actual historical record.
+
+HISTORICAL
+
+INC-182 was caused by connection-pool exhaustion.
+INFERENCE
+Derived from evidence.
+
+INFERENCE
+
+RefundService appears dependent on PaymentService.
+EXTERNAL EVIDENCE
+Found from external technical sources.
+
+EXTERNAL
+
+Similar Kafka rebalance issue documented in...
+RECOMMENDATION
+AI-generated proposal.
+
+RECOMMENDATION
+
+Inspect consumer heartbeat configuration.
+UNKNOWN
+The system cannot establish it.
+
+UNKNOWN
+
+Reason for hardcoded value 17 cannot be established.
+This prevents your AI from converting guesses into organizational facts.
+
+6. Living SDLC documentation
+LEGACYGUARD continuously generates/maintains:
+
+Requirements
+Business requirements
+Functional requirements
+Non-functional requirements
+User stories
+Acceptance criteria
+Architecture
+System architecture
+HLD
+LLD
+Component relationships
+Data flow
+Deployment architecture
+API
+Endpoints
+Parameters
+Request/response
+Authentication
+Error codes
+Versioning
+Database
+Tables
+Relationships
+Indexes
+Migrations
+Data flow
+Testing
+Test strategy
+Test cases
+Integration tests
+Traceability
+Coverage gaps
+Security
+Authentication
+Authorization
+Threat model
+Sensitive flows
+Known risks
+Operations
+Deployment
+Configuration
+Runbooks
+Failure modes
+Recovery procedures
+Release notes
+But don't generate all of this during your demo.
+
+Show maybe:
+
+Architecture + API + Testing + Legacy Knowledge + Incident documentation.
+
+7. Continuous documentation loop
+This is very important.
+
+LEGACYGUARD shouldn't generate documentation once.
+
+It operates continuously:
+
+INITIAL SCAN
+    ↓
+Understand software
+    ↓
+Generate baseline documentation
+    ↓
+Developer changes code
+    ↓
+Change Detector
+    ↓
+Impact Analyzer
+    ↓
+Affected documents identified
+    ↓
+Update only those documents
+    ↓
+Documentation Critic
+    ↓
+Validation
+    ↓
+Publish
+For example:
+
+Developer changes:
+
+POST /payments
+
+to:
+
+POST /payments/v2
+Harness identifies:
+
+Affected:
+
+✓ API documentation
+✓ Architecture
+✓ Integration tests
+✓ Developer guide
+
+Not affected:
+
+✗ Database documentation
+✗ Security documentation
+This prevents unnecessary regeneration.
+
+8. Pillar B — Institutional Engineering Memory
+This is where your idea becomes much more unique.
+
+LEGACYGUARD remembers:
+
+Past incidents
+Root causes
+Solutions
+Workarounds
+Architecture decisions
+Important commits
+Known bugs
+Technical debt
+Failed approaches
+Successful approaches
+Think of it as:
+
+The company's engineering memory.
+
+9. Incident Memory
+Example:
+
+INC-182
+
+System:
+Payment Service
+
+Version:
+v3.4
+
+Failure:
+Payment timeout
+
+Root Cause:
+Connection pool exhaustion
+
+Impact:
+Payment confirmation delays
+
+Resolution:
+Pool configuration changed
+Retry/backoff introduced
+
+Verified:
+YES
+
+Resolved by:
+Rahul
+
+Date:
+2024-08-17
+This becomes searchable knowledge.
+
+10. Do not use only vector similarity
+This is one of the flaws we fixed.
+
+A similar error doesn't necessarily mean a similar root cause.
+
+For example:
+
+"Database timeout"
+could mean:
+
+network issue
+slow query
+connection pool exhaustion
+deadlock
+overloaded DB
+DNS problem
+Therefore your Incident Matching Agent considers:
+
+Error message
+Stack trace
+Affected service
+Code path
+Dependencies
+Architecture
+Database
+Runtime context
+Recent changes
+Historical root cause
+Then:
+
+Case Similarity =
+
+semantic similarity
++
+service similarity
++
+dependency similarity
++
+architecture similarity
++
+error signature similarity
++
+historical context
+11. New Incident Flow
+This is the heart of your demo.
+
+Suppose:
+
+NEW INCIDENT
+
+PaymentService
+ERROR: Payment confirmation timeout
+Latency: 8.7 sec
+The harness begins.
+
+12. Agent 1 — Incident Investigator
+Extracts:
+
+Incident:
+Payment confirmation timeout
+
+Affected service:
+PaymentService
+
+Severity:
+HIGH
+
+Symptoms:
+High latency
+Repeated timeout
+
+Relevant components:
+PaymentController
+PaymentProcessor
+Database
+Redis
+Output goes into LangGraph state.
+
+13. Agent 2 — Historical Incident Agent
+Searches:
+
+Internal incident memory
+It finds:
+
+INC-182
+Similarity: 93%
+
+INC-217
+Similarity: 74%
+
+INC-304
+Similarity: 61%
+It does not automatically choose INC-182.
+
+It passes evidence forward.
+
+14. Agent 3 — Historical Solution Analyzer
+Looks at previous solutions.
+
+Example:
+
+INC-182
+
+Root cause:
+Connection pool exhaustion
+
+Fix:
+Increase connection pool
+Add retry/backoff
+
+Outcome:
+Resolved
+Then it asks:
+
+Does the current system still resemble the old system?
+
+15. Agent 4 — Current-System Compatibility Agent
+Compares:
+
+2024 architecture
+vs
+2026 architecture
+Maybe:
+
+2024:
+PaymentService → MySQL
+
+2026:
+PaymentService → PostgreSQL
+Therefore:
+
+Historical solution compatibility:
+PARTIAL
+Now your system doesn't blindly copy old knowledge.
+
+This is a major harness constraint.
+
+16. What if there is no internal incident?
+This is your second major feature.
+
+Current incident
+       ↓
+Internal search
+       ↓
+No sufficient match
+       ↓
+External Research Agent
+The system explicitly says:
+
+No sufficiently similar internal incident found. Switching to external evidence.
+
+That's a great demo moment.
+
+17. External Research Agent
+It searches for technically similar problems from:
+
+Official documentation
+Vendor documentation
+GitHub issues
+Open-source projects
+Technical publications
+Research papers
+Reliable engineering sources
+It should not simply scrape random web pages and trust them.
+
+18. External Evidence Critic
+External sources are classified.
+
+For example:
+
+Source A
+Official vendor documentation
+Reliability: HIGH
+
+Source B
+Open-source issue
+Reliability: MEDIUM
+
+Source C
+Random blog
+Reliability: LOW
+The system combines them.
+
+19. Solution Reasoner
+Now the system has:
+
+Current system evidence
++
+Internal incidents
++
+External evidence
++
+Current architecture
+It produces candidate solutions.
+
+Example:
+
+Candidate 1
+Check connection pool exhaustion
+Confidence: 86%
+
+Candidate 2
+Investigate database latency
+Confidence: 61%
+
+Candidate 3
+Investigate network timeout
+Confidence: 42%
+20. Agent 5 — Red Team / Critic
+This agent is extremely important.
+
+Its job is:
+
+Try to prove the proposed solution wrong.
+
+It asks:
+
+What evidence contradicts this?
+
+Does the current architecture differ?
+
+Could another root cause explain the symptoms?
+
+Is the historical fix still valid?
+
+Could applying this recommendation cause damage?
+
+Is evidence strong enough?
+The solution agent and critic should be separate.
+
+Never let the same agent generate and approve its own recommendation.
+
+21. Decision Gate
+After criticism:
+
+                  SOLUTION
+                     │
+                  CRITIC
+                     │
+          ┌──────────┼──────────┐
+          │          │          │
+          ▼          ▼          ▼
+        HIGH       MEDIUM       LOW
+      confidence  confidence  confidence
+          │          │          │
+          ▼          ▼          ▼
+    Recommend     Recommend   Escalate
+    + evidence    + warning   human
+22. Three possible outputs
+A. High confidence
+Recommendation:
+Inspect connection pool configuration.
+
+Evidence:
+3 internal incidents
+Same service
+Same error signature
+Current architecture compatible
+
+Confidence:
+91%
+
+Risk:
+LOW
+
+Human validation:
+Required before production change
+B. Medium confidence
+Potential cause:
+Kafka consumer heartbeat configuration
+
+Confidence:
+72%
+
+Evidence:
+2 external cases
+Current system partially matches
+
+Warning:
+Current deployment differs from referenced systems.
+
+Action:
+Engineering review required.
+C. Low confidence
+INSUFFICIENT EVIDENCE
+
+Confidence:
+31%
+
+No reliable historical match.
+External evidence is inconclusive.
+
+Decision:
+Do not recommend an automated fix.
+
+Escalate to:
+Domain Expert
+This “I don't know” capability is one of the best harness features.
+
+23. Pillar C — Engineering Expertise Graph
+Now your employee feature.
+
+Don't call it employee surveillance.
+
+Call it:
+
+Engineering Expertise Graph
+It represents:
+
+Engineer
+   │
+   ├── commits
+   ├── reviews
+   ├── incidents
+   ├── architecture decisions
+   ├── modules
+   └── successful fixes
+24. Expertise calculation
+Don't use:
+
+Number of commits = expertise.
+
+Instead:
+
+Expertise score =
+relevant commits
++
+incident resolutions
++
+code reviews
++
+architecture decisions
++
+historical ownership
++
+successful fixes
++
+recency
+Example:
+
+REFUND ENGINE
+
+Amit
+87% relevance
+
+23 relevant commits
+3 incidents resolved
+2 architecture decisions
+Last active: 4 months ago
+
+Rahul
+64% relevance
+
+12 relevant commits
+1 incident resolved
+Then:
+
+Recommended domain expert: Amit
+
+And importantly:
+
+Why Amit?
+
+The system shows evidence.
+
+25. Knowledge Loss Detection
+This can be a killer feature.
+
+Suppose:
+
+Payment Settlement
+
+Historical knowledge concentration:
+
+Rahul — 78%
+Amit — 14%
+Others — 8%
+Then Rahul leaves the company.
+
+LEGACYGUARD detects:
+
+⚠ KNOWLEDGE CONTINUITY RISK
+
+Module:
+Payment Settlement
+
+Documentation completeness:
+43%
+
+Primary historical expert:
+No longer active
+
+Unresolved areas:
+- settlement retry logic
+- reconciliation flow
+- legacy batch process
+Then:
+
+Recommended actions:
+
+1. Generate missing documentation
+2. Identify secondary experts
+3. Capture architecture decisions
+4. Create onboarding package
+5. Review high-risk legacy modules
+This directly addresses your original concern:
+
+“What happens when the person who wrote the legacy code is no longer in the company?”
+
+26. Pillar D — Legacy Code Intelligence
+Suppose the company has:
+
+10-year-old code
+No proper documentation
+Original developer left
+Few tests
+Unknown dependencies
+LEGACYGUARD performs reverse engineering.
+
+Repository
+   ↓
+AST analysis
+   ↓
+Dependency analysis
+   ↓
+Git history
+   ↓
+API analysis
+   ↓
+Database analysis
+   ↓
+Test analysis
+   ↓
+Incident history
+Then creates:
+
+Legacy System Knowledge Pack
+27. Legacy Knowledge Pack
+For every module:
+
+MODULE
+
+PaymentReconciliation
+Purpose
+What the module appears to do.
+Confidence
+84%
+Dependencies
+PostgreSQL
+Kafka
+Redis
+PaymentService
+Important functions
+reconcile()
+validateTransaction()
+retrySettlement()
+Known incidents
+INC-108
+INC-192
+INC-302
+Known technical debt
+Deprecated dependency
+Missing integration tests
+Hardcoded configuration
+Undocumented retry behavior
+Knowledge risk
+HIGH
+28. New Employee Onboarding
+A new engineer can ask:
+
+“Explain the refund system.”
+
+Instead of reading:
+
+50,000 lines of code
+20 old documents
+100 Jira tickets
+they receive:
+
+REFUND SYSTEM
+
+1. Purpose
+2. Architecture
+3. Code flow
+4. API
+5. Database
+6. Dependencies
+7. Known failure modes
+8. Historical incidents
+9. Previous solutions
+10. Technical debt
+11. Recent changes
+12. Relevant engineers
+13. Tests
+14. Deployment
+And each important statement can have provenance.
+
+For example:
+
+Refund requests are processed asynchronously.
+
+Evidence:
+refund_service.py
+Kafka topic: refund-events
+Integration test: TC-87
+29. Requirement → Code → Test → Incident → Documentation graph
+This should be your central knowledge graph.
+
+Example:
+
+REQ-023
+"Users can request refunds"
+       │
+       ▼
+RefundService
+       │
+       ▼
+POST /payments/{id}/refund
+       │
+       ▼
+refund_controller.py
+       │
+       ▼
+TC-087
+       │
+       ▼
+INC-302
+       │
+       ▼
+Root Cause
+       │
+       ▼
+Solution
+       │
+       ▼
+Documentation
+       │
+       ▼
+Engineer
+Now you can answer:
+
+“What will be affected if I change the refund requirement?”
+
+The graph gives you:
+
+Requirement
+ ↓
+API
+ ↓
+Code
+ ↓
+Tests
+ ↓
+Documentation
+ ↓
+Historical incidents
+That's much more powerful than a traditional wiki.
+
+30. Change Impact Harness
+Suppose developer changes:
+
+POST /payments
+to:
+
+POST /payments/v2
+The Change Detective sees:
+
+API contract changed
+Impact Analyzer traverses the graph.
+
+It identifies:
+
+Affected:
+
+API documentation       🔴
+Integration tests       🔴
+Developer guide         🔴
+Architecture docs      🟠
+Requirements            🟠
+
+Not affected:
+
+Database documentation  🟢
+Security docs           🟢
+Then only relevant agents run.
+
+31. Documentation Critic
+The generated documentation must be independently validated.
+
+Example:
+
+Code:
+
+POST /payments/v2
+Documentation:
+
+POST /payments
+Critic:
+
+❌ DOCUMENTATION DRIFT
+
+Code:
+POST /payments/v2
+
+Documentation:
+POST /payments
+
+Publication blocked.
+Then:
+
+Documentation Agent
+        ↓
+Regenerate
+        ↓
+Critic
+        ↓
+PASS
+This is your feedback loop.
+
+32. Another excellent edge case
+Code:
+
+enum PaymentStatus {
+    PENDING,
+    PROCESSING,
+    SUCCESS,
+    FAILED,
+    REFUNDED
+}
+Documentation:
+
+PENDING
+SUCCESS
+FAILED
+Critic detects:
+
+❌ CONTRACT DRIFT
+
+2 undocumented enum values:
+
+PROCESSING
+REFUNDED
+Regenerate.
+
+33. Another edge case: missing documentation
+Suppose:
+
+API implementation exists
+but:
+
+OpenAPI specification:
+MISSING
+Don't hallucinate.
+
+System says:
+
+⚠ ARTIFACT GAP
+
+API implementation detected.
+
+API contract specification not found.
+
+Confidence in generated API documentation:
+LOW
+
+Action:
+Generate draft from implementation,
+mark as UNVERIFIED,
+request engineer validation.
+That is excellent graceful degradation.
+
+34. Another edge case: contradictory evidence
+Imagine:
+
+Code:
+POST /refund
+
+OpenAPI:
+POST /payments/refund
+
+Old documentation:
+POST /payment/refund
+Three different contracts.
+
+The harness should not choose one arbitrarily.
+
+It says:
+
+❌ CONTRADICTORY CONTRACTS
+
+Code:
+POST /refund
+
+OpenAPI:
+POST /payments/refund
+
+Documentation:
+POST /payment/refund
+
+Decision:
+BLOCK
+
+Reason:
+Authoritative contract cannot be established.
+Then escalate.
+
+That is exactly the type of unexpected input judges want to see.
+
+35. Notification / escalation hierarchy
+Don't notify the entire company.
+
+Use severity + confidence.
+
+LOW
+Engineer
+
+MEDIUM
+Engineer → Tech Lead
+
+HIGH
+Engineer → Tech Lead → Engineering Manager
+
+CRITICAL
+Engineer → Tech Lead → Manager → Domain Owner
+Example:
+
+CRITICAL INCIDENT
+
+Payment processing failure
+Estimated customer impact: HIGH
+
+Primary historical expert:
+Unavailable
+
+Current domain owner:
+Payments Platform
+
+Action:
+Escalated to Payments Platform Owner
+36. Notification should contain evidence
+Bad:
+
+“AI found a payment issue.”
+
+Good:
+
+🚨 HIGH-SEVERITY INCIDENT
+
+System:
+Payment Service
+
+Likely cause:
+Connection pool exhaustion
+
+Confidence:
+91%
+
+Evidence:
+• 3 similar internal incidents
+• Same service
+• Same error signature
+• Current architecture compatible
+
+Previous successful resolution:
+INC-182
+
+Recommended action:
+Inspect pool utilization/configuration.
+
+Human approval required.
+37. Knowledge feedback loop
+After the engineer actually resolves the incident:
+
+Engineer confirms:
+Root cause = connection pool exhaustion
+
+Actual fix:
+Pool size 50 → 100
+
+Outcome:
+Incident resolved
+Now the harness updates:
+
+Incident Memory
+       │
+       ├── root cause
+       ├── solution
+       ├── outcome
+       ├── affected version
+       └── evidence
+
+Legacy Documentation
+       │
+       └── failure mode
+
+Knowledge Graph
+       │
+       └── incident → module → engineer
+
+Expertise Graph
+       │
+       └── engineer → successful resolution
+The next incident has better organizational memory.
+
+38. Very important: don't let AI-generated information contaminate memory
+This is one of the biggest technical flaws we fixed.
+
+Never allow:
+
+LLM guess
+ ↓
+RAG database
+ ↓
+future AI treats guess as fact
+Every knowledge item needs provenance:
+
+source
+source_type
+version
+timestamp
+confidence
+verification_status
+For example:
+
+Claim:
+RefundService retries 3 times
+
+Source:
+refund_service.py:84
+
+Status:
+CODE_VERIFIED
+versus:
+
+Claim:
+RefundService should retry 3 times
+
+Source:
+LLM recommendation
+
+Status:
+UNVERIFIED
+Only verified information enters authoritative memory.
+
+39. Knowledge graph structure
+I'd use Neo4j if feasible.
+
+Your graph could contain:
+
+(:Requirement)
+(:Service)
+(:Module)
+(:Function)
+(:API)
+(:Database)
+(:Test)
+(:Incident)
+(:RootCause)
+(:Solution)
+(:Engineer)
+(:ArchitectureDecision)
+(:Document)
+(:Commit)
+(:Version)
+Relationships:
+
+Requirement
+    └── IMPLEMENTED_BY → Module
+
+Module
+    └── CALLS → Module
+
+Module
+    └── EXPOSES → API
+
+Module
+    └── TESTED_BY → Test
+
+Module
+    └── AFFECTED_BY → Incident
+
+Incident
+    └── CAUSED_BY → RootCause
+
+Incident
+    └── RESOLVED_BY → Solution
+
+Engineer
+    └── RESOLVED → Incident
+
+Engineer
+    └── CONTRIBUTED_TO → Module
+
+Document
+    └── DESCRIBES → Module
+
+Commit
+    └── CHANGED → Module
+
+Version
+    └── CONTAINS → Module
+This gives you powerful traversal.
+
+40. RAG architecture
+Use separate knowledge collections.
+
+Internal knowledge
+internal_incidents
+internal_docs
+internal_runbooks
+architecture_decisions
+tickets
+postmortems
+verified_solutions
+Code knowledge
+functions
+classes
+services
+APIs
+tests
+commits
+External knowledge
+official_docs
+technical_sources
+public_incidents
+open_source_issues
+research
+Do not mix everything into one vector database.
+
+41. Why LangGraph?
+This is where LangGraph is an excellent fit.
+
+Your workflow is not a simple chain.
+
+You have:
+
+Agent
+ ↓
+Agent
+ ↓
+Decision
+ ├── internal search
+ └── external search
+        ↓
+     validator
+        ↓
+      critic
+        ↓
+   ┌────┴────┐
+   │         │
+  pass      fail
+   │         │
+   │       retry
+   │         │
+   └────┬────┘
+        ▼
+   escalation
+That is a graph/state-machine problem.
+
+LangGraph maintains state and controls:
+
+agent handoffs
+branching
+retries
+loops
+validation
+human approval
+escalation
+persistent execution state
+42. Where LangChain fits
+Use LangChain for:
+
+Document loaders
+Retrievers
+Vector search
+Tool interfaces
+Prompt components
+Structured outputs
+External knowledge retrieval
+But:
+
+LangChain is not your harness.
+
+Your harness is the orchestration + state + constraints + validation + feedback architecture.
+
+43. Technology architecture
+I recommend:
+
+                    ┌──────────────────────┐
+                    │     NEXT.JS UI       │
+                    └──────────┬───────────┘
+                               │
+                         REST / WebSocket
+                               │
+                    ┌──────────▼───────────┐
+                    │      FASTAPI         │
+                    └──────────┬───────────┘
+                               │
+                    ┌──────────▼───────────┐
+                    │      LANGGRAPH       │
+                    │   HARNESS ENGINE     │
+                    └──────────┬───────────┘
+                               │
+          ┌────────────────────┼─────────────────────┐
+          │                    │                     │
+          ▼                    ▼                     ▼
+       AGENTS               TOOLS                GATES
+          │                    │                     │
+          │             ┌──────┴──────┐              │
+          │             │             │              │
+          ▼             ▼             ▼              ▼
+       GPT/LLM       Git parser     Search       Validators
+                        │
+                        ▼
+                 Code Intelligence
+          │
+          ├───────────────┐
+          ▼               ▼
+       PostgreSQL      Neo4j
+          │               │
+          ▼               ▼
+      Metadata       Knowledge Graph
+
+          │
+          ▼
+       Qdrant
+          │
+          ▼
+       RAG Memory
+44. Recommended stack
+Layer	Technology
+Frontend	Next.js / React
+Backend	FastAPI
+Agent orchestration	LangGraph
+LLM	GPT
+Agent tooling/RAG	LangChain
+Vector DB	Qdrant
+Relational DB	PostgreSQL
+Knowledge Graph	Neo4j
+Code parsing	Tree-sitter / AST
+Git	GitPython
+Documents	Markdown / HTML / PDF
+Diagrams	Mermaid
+Structured validation	Pydantic
+Authentication	Simple RBAC for demo
+Notifications	Email/Slack simulation or webhook
+45. LangGraph state
+Your state should look approximately like:
+
+HarnessState = {
+    "project": {},
+    "repository": {},
+    "version": {},
+
+    "requirements": [],
+    "architecture": [],
+    "services": [],
+    "modules": [],
+    "apis": [],
+    "database": [],
+    "tests": [],
+
+    "documents": [],
+
+    "changes": [],
+    "affected_artifacts": [],
+
+    "incident": {},
+    "historical_incidents": [],
+    "external_evidence": [],
+
+    "candidate_solutions": [],
+    "validation_results": [],
+
+    "engineers": [],
+    "expertise": [],
+
+    "confidence": 0,
+    "severity": "",
+
+    "decision": "",
+    "escalation": {},
+
+    "final_recommendation": {},
+    "verification": {},
+
+    "audit_log": []
+}
+This persistent state is a major part of your harness.
+
+46. Agent contracts
+Every agent should have a strict input/output contract.
+
+For example:
+
+Incident Investigator
+Input:
+
+logs
+stack trace
+service
+current architecture
+Output:
+
+{
+  "incident_type": "...",
+  "affected_services": [],
+  "symptoms": [],
+  "severity": "...",
+  "evidence": []
+}
+It should not output a final fix.
+
+47. Agent permissions
+This is another important harness feature.
+
+Don't let every agent access everything.
+
+For example:
+
+Code Archaeologist
+→ code only
+
+Historical Incident Agent
+→ incident memory
+
+External Research Agent
+→ external search
+
+Expertise Agent
+→ engineering metadata
+
+Solution Agent
+→ evidence + current system
+
+Critic
+→ candidate solution + evidence
+
+Documentation Agent
+→ verified system facts
+This gives you scoped agents.
+
+48. Security / governance constraints
+Add:
+
+No autonomous production changes
+AI
+ ↓
+Recommendation
+ ↓
+Human approval
+ ↓
+Implementation
+No unsupported claims
+No evidence
+ ↓
+UNKNOWN
+No unauthorized employee data
+Use software-relevant engineering activity only.
+
+No external source treated as internal truth
+External evidence remains marked:
+
+EXTERNAL
+No self-generated knowledge becomes authoritative
+Only verified outputs enter trusted memory.
+
+49. Audit trail
+Every decision should produce:
+
+Timestamp
+Agent
+Input evidence
+Output
+Confidence
+Sources
+Decision
+Human approval
+Final outcome
+Example:
+
+12:41:03
+Incident Investigator
+→ identified payment timeout
+
+12:41:05
+Historical Agent
+→ found INC-182
+
+12:41:08
+Compatibility Agent
+→ 89% compatible
+
+12:41:11
+Solution Agent
+→ candidate fix
+
+12:41:13
+Red Team
+→ no critical contradiction
+
+12:41:16
+Governance Gate
+→ human approval required
+This is excellent for your demo.
+
+50. Dashboard
+Your main UI could look like:
+
+┌─────────────────────────────────────────────────────┐
+│                 LEGACYGUARD                         │
+│       Living Engineering Memory Harness             │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│ System Health        Knowledge Health               │
+│                                                     │
+│ Documentation  91%    Incident Memory     96%       │
+│ Traceability   87%    Legacy Coverage     72%       │
+│                                                     │
+├─────────────────────────────────────────────────────┤
+│ ACTIVE INCIDENT                                     │
+│                                                     │
+│ PaymentService                                       │
+│ Payment confirmation timeout                        │
+│                                                     │
+│ Severity: HIGH                                      │
+│ Confidence: 91%                                     │
+├─────────────────────────────────────────────────────┤
+│ INTERNAL EVIDENCE                                   │
+│                                                     │
+│ INC-182      93% similarity                         │
+│ INC-217      74% similarity                         │
+│ INC-304      61% similarity                         │
+├─────────────────────────────────────────────────────┤
+│ RECOMMENDED ACTION                                  │
+│                                                     │
+│ Inspect connection pool exhaustion                  │
+│                                                     │
+│ Evidence:                                           │
+│ ✓ 3 historical incidents                            │
+│ ✓ same service                                     │
+│ ✓ same error signature                             │
+│ ✓ compatible architecture                          │
+│                                                     │
+│ [VIEW EVIDENCE]   [ESCALATE]   [APPROVE]            │
+└─────────────────────────────────────────────────────┘
+51. Knowledge graph screen
+Show:
+
+REQ-023
+   │
+   ▼
+RefundService
+   │
+   ├──── POST /refund
+   │
+   ├──── TC-087
+   │
+   ├──── INC-302
+   │       │
+   │       ▼
+   │   Connection Pool
+   │       │
+   │       ▼
+   │     Amit
+   │
+   └──── refund.md
+This will visually demonstrate that your system understands relationships, not just documents.
+
+52. Your 4-minute hackathon demo
+This is how I would actually present it.
+
+0:00–0:25 — Problem
+Show:
+
+LegacyPay
+
+10-year-old software
+Original developer gone
+Documentation incomplete
+3 historical incidents
+Say:
+
+“The problem isn't that companies don't have engineering knowledge. The problem is that the knowledge is fragmented across code, incidents, documents and people.”
+
+53. 0:25–1:00 — Initial system scan
+Upload/connect repository.
+
+Show agents:
+
+Code Archaeologist       ✓
+Architecture Agent       ✓
+API Agent                ✓
+Test Agent               ✓
+Documentation Agent      ✓
+Traceability Agent       ✓
+Generate:
+
+Architecture
+API documentation
+Legacy knowledge
+Dependency graph
+Incident links
+54. 1:00–1:40 — New employee scenario
+Ask:
+
+“Explain the refund engine to a new engineer.”
+
+Show:
+
+Architecture
+Code flow
+Dependencies
+Known failure modes
+Historical incidents
+Technical debt
+Relevant engineers
+Then:
+
+“The original engineer isn't available. Who should I contact?”
+
+System:
+
+Amit — 87% relevance
+
+23 relevant commits
+3 incident resolutions
+2 architecture decisions
+This demonstrates your employee knowledge feature.
+
+55. 1:40–2:30 — Incident
+Inject:
+
+Payment confirmation timeout
+Show:
+
+Incident Investigator
+       ↓
+Historical Incident Agent
+       ↓
+INC-182
+93% similarity
+       ↓
+Compatibility Agent
+       ↓
+Solution Agent
+       ↓
+Red Team
+       ↓
+Recommendation
+This should be the centerpiece.
+
+56. 2:30–3:00 — Unknown incident
+Change the incident:
+
+Kafka rebalance failure
+Internal:
+
+NO MATCH
+Then:
+
+External Research Agent
+        ↓
+3 similar cases
+        ↓
+Evidence Critic
+        ↓
+Candidate solution
+        ↓
+Confidence 78%
+This proves your second feature.
+
+57. 3:00–3:30 — Documentation drift
+Change:
+
+POST /payments
+to:
+
+POST /payments/v2
+Harness:
+
+Change detected
+
+Impact:
+API docs
+Integration tests
+Developer guide
+
+Documentation Agent
+       ↓
+Critic
+       ↓
+PASS
+58. 3:30–4:00 — Killer edge case
+Create contradiction:
+
+Code:
+POST /refund
+
+OpenAPI:
+POST /payments/refund
+
+Documentation:
+POST /payment/refund
+Your system:
+
+❌ CONTRADICTION
+
+Cannot establish authoritative contract.
+
+Recommendation:
+BLOCK
+
+Escalate:
+Payments Domain Owner
+Then say:
+
+“Our AI isn't designed to always answer. It's designed to know when it has enough evidence to answer.”
+
+That's a very strong closing line.
+
+59. The complete harness loop
+Your final diagram for the judges should essentially be:
+
+                     ┌──────────────────────┐
+                     │       INPUTS         │
+                     ├──────────────────────┤
+                     │ Code                 │
+                     │ Git                  │
+                     │ APIs                 │
+                     │ Tests                │
+                     │ Requirements         │
+                     │ Incidents            │
+                     │ Documents            │
+                     │ Engineering History  │
+                     └──────────┬───────────┘
+                                │
+                                ▼
+                     ┌──────────────────────┐
+                     │ CODE ARCHAEOLOGIST   │
+                     └──────────┬───────────┘
+                                │
+                                ▼
+                     ┌──────────────────────┐
+                     │ KNOWLEDGE GRAPH      │
+                     └──────────┬───────────┘
+                                │
+             ┌──────────────────┼─────────────────┐
+             │                  │                 │
+             ▼                  ▼                 ▼
+       DOCUMENTATION       INCIDENT MEMORY    EXPERTISE
+          ENGINE                │                GRAPH
+             │                  │
+             └──────────────────┼─────────────────┘
+                                │
+                                ▼
+                         NEW INCIDENT
+                                │
+                                ▼
+                    ┌──────────────────────┐
+                    │ INCIDENT INVESTIGATOR│
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                     INTERNAL KNOWLEDGE
+                               │
+                       ┌───────┴────────┐
+                       │                │
+                     MATCH           NO MATCH
+                       │                │
+                       │                ▼
+                       │       EXTERNAL RESEARCH
+                       │                │
+                       └───────┬────────┘
+                               ▼
+                      SOLUTION REASONER
+                               │
+                               ▼
+                         RED TEAM CRITIC
+                               │
+                               ▼
+                       EVIDENCE GATE
+                     ┌─────────┴─────────┐
+                     │                   │
+                   PASS                FAIL
+                     │                   │
+                     ▼                   ▼
+              HUMAN REVIEW           REWORK
+                     │                   │
+                     └─────────┬─────────┘
+                               ▼
+                       VERIFIED OUTCOME
+                               │
+                               ▼
+                       UPDATE MEMORY
+                               │
+                ┌──────────────┼──────────────┐
+                ▼              ▼              ▼
+            INCIDENT       DOCUMENTATION    EXPERTISE
+             MEMORY           GRAPH           GRAPH
+60. Why this is a harness
+This is the answer you give when a judge asks:
+
+“Why isn't this just one LLM?”
+
+Because the system has:
+1. Specialized agents
+
+Each agent has a narrow responsibility.
+
+2. Constraints
+
+Agents cannot arbitrarily perform another agent's job.
+
+3. Persistent state
+
+The system remembers software versions, incidents, solutions and validation results.
+
+4. Evidence hierarchy
+
+Facts are separated from inference and recommendations.
+
+5. Feedback loops
+
+Critic → rework → validation.
+
+6. Branching
+
+Internal evidence → external research when necessary.
+
+7. Graceful degradation
+
+Insufficient evidence → escalation rather than hallucination.
+
+8. Human-in-the-loop
+
+High-risk recommendations require approval.
+
+9. Continuous operation
+
+Code changes trigger documentation/knowledge updates.
+
+10. Institutional memory
+
+Verified incident outcomes feed future decisions.
+
+That's the harness.
+
+61. The three loops you should emphasize
+Your entire architecture can be simplified into three loops.
+
+Loop 1 — Understand
+Code
+ ↓
+Analyze
+ ↓
+Document
+ ↓
+Graph
+Loop 2 — Resolve
+Incident
+ ↓
+Internal memory
+ ↓
+External research
+ ↓
+Reason
+ ↓
+Critic
+ ↓
+Human
+ ↓
+Resolution
+Loop 3 — Learn
+Verified resolution
+ ↓
+Incident memory
+ ↓
+Documentation
+ ↓
+Expertise graph
+ ↓
+Future incident
+And there's a parallel continuous loop:
+
+Code Change
+ ↓
+Impact Analysis
+ ↓
+Documentation Update
+ ↓
+Validation
+62. Final feature list
+Your final product can advertise these features:
+
+Software Intelligence
+Repository ingestion
+Legacy-code analysis
+Architecture reconstruction
+API discovery
+Dependency analysis
+Database mapping
+Test mapping
+Technical debt detection
+Living Documentation
+SRS reconstruction
+HLD
+LLD
+API documentation
+Database documentation
+Test documentation
+Security documentation
+Deployment documentation
+Release documentation
+Continuous updates
+Documentation drift detection
+Incident Intelligence
+Incident ingestion
+Error classification
+Historical incident matching
+Root-cause comparison
+Previous solution retrieval
+Current-system compatibility checking
+External research fallback
+Solution ranking
+Evidence scoring
+Red-team validation
+Engineering Memory
+Engineering expertise graph
+Module ownership history
+Incident participation
+Architecture decisions
+Successful resolutions
+Knowledge concentration
+Knowledge continuity risk
+Domain-expert discovery
+New Engineer Experience
+Ask about any module
+Generate module briefing
+Explain architecture
+Explain historical decisions
+Explain known failure modes
+Identify relevant engineers
+Generate onboarding package
+Governance
+Confidence scoring
+Evidence provenance
+Human approval
+Escalation hierarchy
+Audit trail
+Contradiction detection
+Unknown state
+No unsupported recommendations
+63. Features I would NOT build for the hackathon
+This is important.
+
+Don't attempt:
+
+❌ Automatic production code modification
+❌ Automatic production deployment
+❌ Employee performance scoring
+❌ Full Jira/Slack/HR integration
+❌ 100% autonomous incident resolution
+❌ Complete enterprise security platform
+❌ Full SDLC generation for every possible methodology
+❌ Dozens of agents
+❌ Huge enterprise-scale infrastructure
+
+Those will consume your time and dilute the core idea.
+
+64. What you actually need to implement
+For the hackathon MVP:
+
+Input
+One realistic legacy repository.
+
+Knowledge
+Create:
+
+5–10 historical incidents
+5–10 engineers
+existing documentation
+code repository
+2–3 known solutions
+Agents
+Implement:
+
+1. Code Archaeologist
+2. Documentation Agent
+3. Incident Investigator
+4. Historical Incident Agent
+5. External Research Agent
+6. Solution Validator / Red Team
+7. Expertise + Escalation Agent
+Harness
+LangGraph:
+
+state
+routing
+branching
+critic
+retry
+human approval
+Storage
+PostgreSQL
+Qdrant
+Neo4j
+If Neo4j is too much for the deadline, use NetworkX/PostgreSQL initially and visually demonstrate the graph.
+
+65. The single most important demo scenario
+Don't make the demo about:
+
+“Look, our AI generated documentation.”
+
+That's ordinary.
+
+Make it:
+
+“A developer who originally owned this legacy system is gone. A production incident occurs. Watch our harness reconstruct the relevant software context, find a similar incident, verify whether the old fix still applies, identify the engineer with relevant historical expertise, challenge its own recommendation, escalate when evidence is insufficient, and then update the organizational memory after the incident is resolved.”
+
+That tells a complete story.
+
+66. Final positioning
+I would describe the product this way:
+
+LEGACYGUARD
+A Living Engineering Memory & Incident Resolution Harness
+
+LEGACYGUARD continuously reconstructs and maintains the knowledge surrounding software systems—from code, architecture, APIs, tests, requirements and documentation to historical incidents, engineering decisions and relevant expertise. When a new failure occurs, a multi-agent harness first searches verified internal memory, falls back to external technical evidence when necessary, validates proposed solutions against the current system, challenges its own reasoning, and escalates uncertain or high-risk cases to the appropriate engineer. Once the incident is resolved, the verified outcome becomes part of the company's permanent engineering memory.
+
+And the strongest line:
+
+“CodeWiki explains your code. LEGACYGUARD remembers what your organization learned from it.”
+
+67. The final mental model
+If you remember only one diagram, remember this:
+
+             ┌───────────────────────────┐
+             │          CODE             │
+             └─────────────┬─────────────┘
+                           │
+                           ▼
+                    UNDERSTAND CODE
+                           │
+                           ▼
+                  LIVING DOCUMENTATION
+                           │
+                           ▼
+                  KNOWLEDGE GRAPH
+                           │
+        ┌──────────────────┼─────────────────┐
+        │                  │                 │
+        ▼                  ▼                 ▼
+    INCIDENTS          ENGINEERS         DECISIONS
+        │                  │                 │
+        └──────────────────┼─────────────────┘
+                           │
+                           ▼
+                    NEW FAILURE
+                           │
+                           ▼
+                     INVESTIGATE
+                           │
+                           ▼
+                 ┌─────────┴─────────┐
+                 ▼                   ▼
+          INTERNAL MEMORY       EXTERNAL WORLD
+                 │                   │
+                 └─────────┬─────────┘
+                           ▼
+                    SOLUTION AGENT
+                           │
+                           ▼
+                       RED TEAM
+                           │
+                    ┌──────┴──────┐
+                    ▼             ▼
+                  PROVEN        UNSURE
+                    │             │
+                    ▼             ▼
+               HUMAN REVIEW    ESCALATE
+                    │
+                    ▼
+                 RESOLVE
+                    │
+                    ▼
+              VERIFY OUTCOME
+                    │
+                    ▼
+              UPDATE MEMORY
+                    │
+                    └───────────────► FUTURE INCIDENT
+That is the product.
+
+Not “AI that writes SDLC documents.”
+
+Not “RAG over GitHub.”
+
+Not “an AI incident chatbot.”
+
+It is a closed-loop software engineering harness that preserves organizational knowledge, continuously understands legacy software, and turns every verified incident resolution into institutional memory.
+
+For the Michelin hackathon, I would make Incident → Historical Memory → Validation → Resolution → Knowledge Update the centerpiece, with CodeWiki-style living documentation and employee knowledge continuity as the supporting capabilities.
+

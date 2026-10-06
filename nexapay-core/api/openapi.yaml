@@ -1,0 +1,37 @@
+openapi: 3.0.3
+info:
+  title: NexaPay Core API
+  version: 2.0.0
+  description: |
+    Published OpenAPI for NexaPay Core.
+    NOTE: refund path here is stale relative to code (governance demo).
+paths:
+  /payments/v2:
+    post:
+      summary: Create payment
+      operationId: createPayment
+      responses:
+        "201":
+          description: Created
+  /payments/v2/{payment_id}/confirm:
+    post:
+      summary: Confirm payment
+      operationId: confirmPayment
+      parameters:
+        - in: path
+          name: payment_id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Confirmed
+        "504":
+          description: Confirmation timeout
+  /payments/refund:
+    post:
+      summary: Create refund (OpenAPI contract — conflicts with code)
+      operationId: createRefund
+      responses:
+        "202":
+          description: Accepted

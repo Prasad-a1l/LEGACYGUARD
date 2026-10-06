@@ -1,0 +1,63 @@
+{
+  "current": {
+    "year": 2026,
+    "database": "postgresql",
+    "pool_size": 100,
+    "cache": "redis",
+    "broker": "kafka",
+    "api_payments": "POST /payments/v2",
+    "api_refunds_code": "POST /payments/v2/refund",
+    "services": ["Payment", "Refund", "Settlement"],
+    "gateway": "API Gateway"
+  },
+  "historical_2024": {
+    "year": 2024,
+    "database": "mysql",
+    "pool_size": 50,
+    "cache": "redis",
+    "broker": "kafka",
+    "api_payments": "POST /payments"
+  },
+  "adrs": [
+    {
+      "id": "ADR-001",
+      "title": "Split monolith into Payment, Refund, Settlement",
+      "author": "EMP-008",
+      "year": 2018
+    },
+    {
+      "id": "ADR-009",
+      "title": "Confirmation timeout budget 8.7s",
+      "author": "EMP-001",
+      "year": 2022
+    },
+    {
+      "id": "ADR-011",
+      "title": "Kafka consumer groups per service",
+      "author": "EMP-005",
+      "year": 2021
+    },
+    {
+      "id": "ADR-018",
+      "title": "Migrate Payment persistence from MySQL to PostgreSQL",
+      "author": "EMP-008",
+      "year": 2025
+    },
+    {
+      "id": "ADR-021",
+      "title": "Refund idempotency keys",
+      "author": "EMP-002",
+      "year": 2024
+    },
+    {
+      "id": "ADR-027",
+      "title": "Public API versioning (/v2)",
+      "author": "EMP-004",
+      "year": 2026
+    }
+  ],
+  "baseline_api": {
+    "payments": "POST /payments",
+    "refunds": "POST /payments/refund"
+  }
+}

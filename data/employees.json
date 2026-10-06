@@ -1,0 +1,115 @@
+{
+  "company": {
+    "id": "NEXAPAY",
+    "name": "NexaPay",
+    "platform": "NexaPay Core",
+    "age_years": 9,
+    "tagline": "When the engineer leaves, the knowledge doesn't."
+  },
+  "employees": [
+    {
+      "id": "EMP-001",
+      "name": "Rahul Sharma",
+      "title": "Senior Backend Engineer",
+      "status": "former",
+      "team": "Payments",
+      "modules": ["Payment", "Settlement"],
+      "incidents": ["INC-102", "INC-187", "INC-203"],
+      "commits": {"Payment": 37, "Settlement": 29, "Refund": 4},
+      "architecture_decisions": ["ADR-014 persistence migration planning", "ADR-009 confirmation timeout budget"],
+      "documentation_coverage": {"Payment": 0.72, "Settlement": 0.48},
+      "expertise": {"Payment": 0.94, "Settlement": 0.88, "Refund": 0.22}
+    },
+    {
+      "id": "EMP-002",
+      "name": "Amit Patel",
+      "title": "Backend Engineer",
+      "status": "active",
+      "team": "Payments",
+      "modules": ["Refund", "Payment"],
+      "incidents": ["INC-155", "INC-221"],
+      "commits": {"Refund": 41, "Payment": 18, "Settlement": 2},
+      "architecture_decisions": ["ADR-021 refund idempotency keys"],
+      "documentation_coverage": {"Refund": 0.61, "Payment": 0.33},
+      "expertise": {"Refund": 0.91, "Payment": 0.58, "Settlement": 0.18}
+    },
+    {
+      "id": "EMP-003",
+      "name": "Priya Nair",
+      "title": "Database Engineer",
+      "status": "active",
+      "team": "Platform",
+      "modules": ["PostgreSQL", "Settlement"],
+      "incidents": ["INC-187", "INC-210"],
+      "commits": {"Settlement": 16, "Payment": 9, "Refund": 3},
+      "architecture_decisions": ["ADR-018 PostgreSQL pool sizing"],
+      "documentation_coverage": {"PostgreSQL": 0.7, "Settlement": 0.4},
+      "expertise": {"PostgreSQL": 0.86, "Settlement": 0.71, "Payment": 0.44}
+    },
+    {
+      "id": "EMP-004",
+      "name": "Kavya Iyer",
+      "title": "Payments Domain Owner",
+      "status": "active",
+      "team": "Payments",
+      "modules": ["Payment", "Refund", "API Gateway"],
+      "incidents": ["INC-176"],
+      "commits": {"Payment": 12, "Refund": 8, "Settlement": 1},
+      "architecture_decisions": ["ADR-027 public API versioning"],
+      "documentation_coverage": {"Payment": 0.55, "Refund": 0.5},
+      "expertise": {"Payment": 0.77, "Refund": 0.64, "API Gateway": 0.8}
+    },
+    {
+      "id": "EMP-005",
+      "name": "Rohan Mehta",
+      "title": "Platform Engineer",
+      "status": "active",
+      "team": "Platform",
+      "modules": ["Kafka", "Settlement", "Redis"],
+      "incidents": ["INC-203", "INC-108", "INC-219"],
+      "commits": {"Settlement": 22, "Payment": 5, "Refund": 6},
+      "architecture_decisions": ["ADR-011 Kafka consumer groups"],
+      "documentation_coverage": {"Kafka": 0.52, "Settlement": 0.35},
+      "expertise": {"Kafka": 0.89, "Settlement": 0.66, "Redis": 0.6}
+    },
+    {
+      "id": "EMP-006",
+      "name": "Sneha Desai",
+      "title": "QA Engineer",
+      "status": "active",
+      "team": "Quality",
+      "modules": ["Refund", "Payment"],
+      "incidents": ["INC-155", "INC-221"],
+      "commits": {"Refund": 14, "Payment": 11, "Settlement": 3},
+      "architecture_decisions": [],
+      "documentation_coverage": {"Refund": 0.48},
+      "expertise": {"Refund": 0.57, "Payment": 0.5}
+    },
+    {
+      "id": "EMP-007",
+      "name": "Arjun Reddy",
+      "title": "Site Reliability Engineer",
+      "status": "active",
+      "team": "SRE",
+      "modules": ["API Gateway", "Redis", "PostgreSQL"],
+      "incidents": ["INC-176", "INC-198"],
+      "commits": {"Payment": 7, "Settlement": 8, "Refund": 2},
+      "architecture_decisions": ["ADR-016 gateway timeout alignment"],
+      "documentation_coverage": {"API Gateway": 0.44},
+      "expertise": {"API Gateway": 0.73, "Redis": 0.68, "PostgreSQL": 0.51}
+    },
+    {
+      "id": "EMP-008",
+      "name": "Meera Joshi",
+      "title": "Staff Architect",
+      "status": "active",
+      "team": "Architecture",
+      "modules": ["Payment", "Settlement", "Refund"],
+      "incidents": ["INC-102"],
+      "commits": {"Payment": 6, "Settlement": 5, "Refund": 4},
+      "architecture_decisions": ["ADR-001 original service split", "ADR-018 PostgreSQL migration"],
+      "documentation_coverage": {"Architecture": 0.8},
+      "expertise": {"Payment": 0.62, "Settlement": 0.6, "Refund": 0.55}
+    }
+  ]
+}

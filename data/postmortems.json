@@ -1,0 +1,20 @@
+[
+  {
+    "id": "PM-102",
+    "incident_id": "INC-102",
+    "title": "Postmortem: Payment confirmation timeouts (2024)",
+    "body": "On 2024-08-17 PaymentService confirmation latency exceeded 8.7s during evening traffic. Root cause was MySQL connection pool exhaustion (pool_size=50). Rahul Sharma increased pool size and added exponential backoff. Persistence was still MySQL. Do not copy this fix blindly after the 2025 PostgreSQL migration."
+  },
+  {
+    "id": "PM-155",
+    "incident_id": "INC-155",
+    "title": "Postmortem: Duplicate refunds",
+    "body": "Refund API lacked idempotency keys. Kafka at-least-once delivery replayed refund.created messages and double-posted the ledger. Amit Patel added idempotency_key on create and worker consume. Remaining debt: integration coverage for retry storms is incomplete."
+  },
+  {
+    "id": "PM-203",
+    "incident_id": "INC-203",
+    "title": "Postmortem: Settlement reconciliation lag",
+    "body": "Settlement consumer lag grew overnight. Root cause was throughput (max.poll.records / worker count), not group rebalancing. Heartbeat.interval.ms and session.timeout.ms were left unchanged. Rahul Sharma scaled workers. If consumers repeatedly rebalance, investigate heartbeat/session timeout separately from lag."
+  }
+]
